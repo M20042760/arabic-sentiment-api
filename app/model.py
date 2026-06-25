@@ -5,7 +5,7 @@ import torch
 # CAMeL-Lab AraBERT fine-tuned for sentiment analysis
 # Labels: positive, negative, neutral
 
-MODEL_NAME = "CAMeL-Lab/bert-base-arabic-camelbert-da-sentiment"
+MODEL_NAME = "CAMeL-Lab/bert-base-arabic-camelbert-mix-sentiment"
 
 print(f"Loading model: {MODEL_NAME} ...")
 
@@ -14,7 +14,7 @@ sentiment_pipeline = pipeline(
     model=MODEL_NAME,
     tokenizer=MODEL_NAME,
     return_all_scores=True,
-    device=0 if torch.cuda.is_available() else -1  # GPU if available, else CPU
+    device=-1  # CPU only for free tier
 )
 
 print("Model loaded successfully ✅")
